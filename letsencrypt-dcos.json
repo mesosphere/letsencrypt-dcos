@@ -1,0 +1,35 @@
+{
+  "id": "/letsencrypt-dcos",
+  "cpus": 0.05,
+  "mem": 128,
+  "instances": 1,
+  "container": {
+    "type": "DOCKER",
+    "volumes": [{
+      "containerPath": "/etc/letsencrypt",
+      "hostPath": "/var/lib/letsencrypt",
+      "mode": "RW"
+    }],
+    "docker": {
+      "image": "mesosphere/letsencrypt-dcos",
+      "network": "BRIDGE",
+      "portMappings": [{
+        "containerPort": 80,
+        "hostPort": 0,
+        "servicePort": 10000,
+        "protocol": "tcp"
+      }]
+    }
+  },
+  "env": {
+    "MARATHON_URL": "http://master.mesos:8080",
+    "MARATHON_LB_ID": "marathon-lb",
+    "SSL_EMAIL": "brenden@diddyinc.com",
+    "SSL_DOMAINS": "ssl-test-1.mesosphere.com,ssl-test-2.mesosphere.com"
+  },
+  "labels": {
+    "HAPROXY_0_VHOST": "ssl-test-1.mesosphere.com,ssl-test-2.mesosphere.com",
+    "HAPROXY_0_PATH": "/.well-known/acme-challenge",
+    "HAPROXY_GROUP": "external"
+  }
+}

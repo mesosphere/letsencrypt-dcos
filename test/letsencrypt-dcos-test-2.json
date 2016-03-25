@@ -1,0 +1,31 @@
+{
+  "id": "/letsencrypt-dcos-test-2",
+  "cpus": 0.1,
+  "mem": 256,
+  "instances": 3,
+  "container": {
+    "type": "DOCKER",
+    "docker": {
+      "image": "mesosphere/letsencrypt-dcos-test",
+      "network": "BRIDGE",
+      "portMappings": [{
+              "containerPort": 8080,
+              "hostPort": 0,
+              "servicePort": 10002
+      }]
+    }
+  },
+  "healthChecks": [{
+      "protocol": "HTTP",
+      "path": "/health",
+      "gracePeriodSeconds": 60,
+      "intervalSeconds": 10,
+      "portIndex": 0,
+      "timeoutSeconds": 10,
+      "maxConsecutiveFailures": 2
+  }],
+  "labels":{
+    "HAPROXY_GROUP":"external",
+    "HAPROXY_0_VHOST":"ssl-test-2.mesosphere.com"
+  }
+}
