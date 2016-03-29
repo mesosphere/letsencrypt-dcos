@@ -27,6 +27,7 @@
   "labels":{
     "HAPROXY_GROUP":"external",
     "HAPROXY_0_VHOST":"ssl-test-1.mesosphere.com",
-    "HAPROXY_0_REDIRECT_TO_HTTPS":"true"
+    "HAPROXY_0_REDIRECT_TO_HTTPS":"true",
+    "HAPROXY_0_USE_HSTS":"true"
   }
 }
