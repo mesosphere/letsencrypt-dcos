@@ -31,5 +31,6 @@
     "HAPROXY_0_VHOST": "ssl-test-1.mesosphere.com,ssl-test-2.mesosphere.com",
     "HAPROXY_0_PATH": "/.well-known/acme-challenge",
     "HAPROXY_GROUP": "external"
-  }
+  },
+  "backoffSeconds": 5
 }

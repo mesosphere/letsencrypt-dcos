@@ -2,7 +2,7 @@
 set -e
 
 # Wait to settle
-sleep 10
+sleep 15
 
 IFS=',' read -ra ADDR <<< "$SSL_DOMAINS"
 DOMAIN_ARGS=""
