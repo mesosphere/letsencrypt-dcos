@@ -21,7 +21,7 @@ echo "DOMAIN_FIRST: ${DOMAIN_FIRST}"
 echo "Running letsencrypt-auto to generate initial signed cert"
 ./letsencrypt-auto certonly --standalone --standalone-supported-challenges http-01 \
   $DOMAIN_ARGS --email $SSL_EMAIL --agree-tos --non-interactive --no-redirect \
-  --rsa-key-size 4096
+  --rsa-key-size 4096 --expand
 
 while [ true ]; do
   cat /etc/letsencrypt/live/$DOMAIN_FIRST/fullchain.pem \
