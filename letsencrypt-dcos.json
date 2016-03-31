@@ -5,11 +5,6 @@
   "instances": 1,
   "container": {
     "type": "DOCKER",
-    "volumes": [{
-      "containerPath": "/etc/letsencrypt",
-      "hostPath": "/var/lib/letsencrypt",
-      "mode": "RW"
-    }],
     "docker": {
       "image": "mesosphere/letsencrypt-dcos",
       "network": "BRIDGE",
