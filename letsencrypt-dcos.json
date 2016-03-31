@@ -24,8 +24,7 @@
   "env": {
     "MARATHON_URL": "http://master.mesos:8080",
     "MARATHON_LB_ID": "marathon-lb",
-    "SSL_EMAIL": "brenden@diddyinc.com",
-    "SSL_DOMAINS": "ssl-test-1.mesosphere.com,ssl-test-2.mesosphere.com"
+    "SSL_EMAIL": "brenden@diddyinc.com"
   },
   "labels": {
     "HAPROXY_0_VHOST": "ssl-test-1.mesosphere.com,ssl-test-2.mesosphere.com",

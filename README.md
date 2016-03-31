@@ -5,7 +5,7 @@ This is a sample [Marathon](https://github.com/mesosphere/marathon) app for encr
 ## Getting started
 
 Clone (or manually copy) this repo, and modify the [letsencrypt-dcos.json](letsencrypt-dcos.json) file to include:
- - The list of hostnames (must be FQDNs) you want to generate SSL certs for (in both `SSL_DOMAINS` and `HAPROXY_0_VHOST`)
+ - The list of hostnames (must be FQDNs) you want to generate SSL certs for in `HAPROXY_0_VHOST`
  - An admin email address for your certificate (in `SSL_EMAIL`)
  - The Marathon API endpoint (in `MARATHON_URL`)
  - The Marathon-lb app ID (in `MARATHON_LB_ID`)
@@ -25,4 +25,5 @@ The app includes 2 scripts: [`run.sh`](run.sh) and [`post_cert.py`](post_cert.py
 ## Limitations
 
  - You may only have up to 100 domains per cert.
+ - Let's Encrypt currently has rate limits, such as issuing a maximum
  - Currently, when the cert is updated, it requires a full redeploy of Marathon-lb. This means there may be a few seconds of downtime as the deployment occurs. This can be mitigated by placing another LB (such as an ELB or F5) in front of HAProxy.
