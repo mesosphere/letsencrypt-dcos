@@ -6,7 +6,7 @@ This is a sample [Marathon](https://github.com/mesosphere/marathon) app for encr
 
 Clone (or manually copy) this repo, and modify the [letsencrypt-dcos.json](letsencrypt-dcos.json) file to include:
  - The list of hostnames (must be FQDNs) for which you want to generate SSL certs (in `HAPROXY_0_VHOST`)
- - An admin email address for your certificate (in `SSL_EMAIL`)
+ - An admin email address for your certificate (in `LETSENCRYPT_EMAIL`)
  - The Marathon API endpoint (in `MARATHON_URL`)
  - The Marathon-lb app ID (in `MARATHON_LB_ID`)
 
