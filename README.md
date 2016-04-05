@@ -27,3 +27,4 @@ The app includes 2 scripts: [`run.sh`](run.sh) and [`post_cert.py`](post_cert.py
  - You may only have up to 100 domains per cert.
  - Let's Encrypt currently has rate limits, such as issuing a maximum
  - Currently, when the cert is updated, it requires a full redeploy of Marathon-lb. This means there may be a few seconds of downtime as the deployment occurs. This can be mitigated by placing another LB (such as an ELB or F5) in front of HAProxy.
+ - The certs are kept inside the container at `/etc/letsencrypt`. You might want to mount the directory as an external volume to preserve the data.
