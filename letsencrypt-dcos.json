@@ -1,7 +1,7 @@
 {
   "id": "/letsencrypt-dcos",
   "cpus": 0.05,
-  "mem": 128,
+  "mem": 64,
   "instances": 1,
   "container": {
     "type": "DOCKER",
