@@ -6,7 +6,7 @@
   "container": {
     "type": "DOCKER",
     "docker": {
-      "image": "mesosphere/letsencrypt-dcos",
+      "image": "mesosphere/letsencrypt-dcos:v1.0.0",
       "network": "BRIDGE",
       "portMappings": [{
         "containerPort": 80,
