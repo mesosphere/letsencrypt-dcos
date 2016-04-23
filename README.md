@@ -22,9 +22,10 @@ There are 2 test apps included, based on [openresty](https://openresty.org/), wh
 
 The app includes 2 scripts: [`run.sh`](run.sh) and [`post_cert.py`](post_cert.py). The first script (`run.sh`) will generate the initial SSL cert and POST the cert to Marathon for Marathon-lb. It will then attempt to renew & update the cert every 24 hours. The `post_cert.py` script will compare the current cert in Marathon to the current live cert, and update it as necessary. `post_cert.py` is called after the initial cert is generated, and again every 24 hours after a renewal attempt.
 
+A persistent volume called `data` is mounted inside the container at `/etc/letsencrypt` which contains the certificates and other generated state.
+
 ## Limitations
 
  - You may only have up to 100 domains per cert.
- - Let's Encrypt currently has rate limits, such as issuing a maximum
+ - Let's Encrypt currently has rate limits, such as issuing a maximum of 5 certs per set of domains per week.
  - Currently, when the cert is updated, it requires a full redeploy of Marathon-lb. This means there may be a few seconds of downtime as the deployment occurs. This can be mitigated by placing another LB (such as an ELB or F5) in front of HAProxy.
- - The certs are kept inside the container at `/etc/letsencrypt`. You might want to mount the directory as an external volume to preserve the data.
