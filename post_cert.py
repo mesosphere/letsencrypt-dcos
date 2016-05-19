@@ -8,6 +8,8 @@ import time
 
 url = os.environ.get('MARATHON_URL')
 marathon_lb_id = os.environ.get('MARATHON_LB_ID')
+marathon_lb_cert_env = \
+    os.environ.get('MARATHON_LB_CERT_ENV', 'HAPROXY_SSL_CERT')
 
 print("Retrieving current marathon-lb cert")
 sys.stdout.flush()
@@ -21,8 +23,8 @@ with open(sys.argv[1], 'r') as f:
 
 print("Comparing old cert to new cert")
 sys.stdout.flush()
-if cert != env.get('HAPROXY_SSL_CERT', ''):
-    env['HAPROXY_SSL_CERT'] = cert
+if cert != env.get(marathon_lb_cert_env, ''):
+    env[marathon_lb_cert_env] = cert
 
     print("Deploying marathon-lb with new cert")
     sys.stdout.flush()
