@@ -1,7 +1,7 @@
 {
   "id": "/letsencrypt-dcos",
   "cpus": 0.05,
-  "mem": 64,
+  "mem": 512,
   "instances": 1,
   "container": {
     "type": "DOCKER",
@@ -20,7 +20,7 @@
       }
     ],
     "docker": {
-      "image": "mesosphere/letsencrypt-dcos:v1.0.1",
+      "image": "mesosphere/letsencrypt-dcos:v1.0.3",
       "network": "BRIDGE",
       "portMappings": [
         {
