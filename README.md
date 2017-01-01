@@ -9,6 +9,7 @@ Clone (or manually copy) this repo, and modify the [letsencrypt-dcos.json](letse
  - An admin email address for your certificate (in `LETSENCRYPT_EMAIL`)
  - The Marathon API endpoint (in `MARATHON_URL`)
  - The Marathon-lb app ID (in `MARATHON_LB_ID`)
+ - Ensure you have **at least 2 or more** public agents in your DC/OS cluster, and that marathon-lb is scaled out to more than 1 public agent. Deploying this app requires this since it entails restarting marathon-lb.
 
 Now launch the `letsencrypt-dcos` Marathon app:
 
