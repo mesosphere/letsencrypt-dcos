@@ -2,7 +2,7 @@ FROM debian:jessie
 
 WORKDIR /
 ENV DEBIAN_FRONTEND=noninteractive
-ENV CERTBOT_VERSION=0.8.1
+ENV CERTBOT_VERSION=0.26.1
 RUN apt-get update \
   && apt-get install -y unzip curl python-pip \
   && pip install --upgrade pip \
