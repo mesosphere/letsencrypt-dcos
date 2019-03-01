@@ -1,5 +1,8 @@
 # Let's Encrypt DC/OS!
 
+
+# This repository is now deprecated, and this project has moved to https://github.com/dcos-labs/letsencrypt-dcos
+
 This is a sample [Marathon](https://github.com/mesosphere/marathon) app for encrypting your [Marathon-lb](https://github.com/mesosphere/marathon-lb) HAProxy endpoints using [Let's Encrypt](https://letsencrypt.org/). With this, you can automatically generate and renew valid SSL certs with Marathon-lb.
 
 ## Getting started
